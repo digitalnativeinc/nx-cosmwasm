@@ -1,38 +1,41 @@
 {
-	"npmScope": "nxrs",
-	"affected": {
-		"defaultBase": "main"
-	},
-	"implicitDependencies": {
-		"package.json": {
-			"dependencies": "*",
-			"devDependencies": "*"
-		},
-		".eslintrc.json": "*"
-	},
-	"tasksRunnerOptions": {
-		"default": {
-			"runner": "@nrwl/workspace/tasks-runners/default",
-			"options": {
-				"cacheableOperations": ["build", "lint", "test", "e2e"],
-				"parallel": 1
-			}
-		}
-	},
-	"targetDependencies": {
-		"build": [
-			{
-				"target": "build",
-				"projects": "dependencies"
-			}
-		]
-	},
-	"workspaceLayout": {
-		"appsDir": "e2e",
-		"libsDir": "packages"
-	},
-	"cli": {
-		"defaultCollection": "@nrwl/nx-plugin"
-	},
-	"defaultProject": "cargo"
+  "npmScope": "digitalnative",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "parallel": 1,
+        "accessToken": "MmU0ODVmMmYtYjVjYS00ODU5LWE4ZDQtMWQ1ZDg4MjBhNGVjfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "workspaceLayout": {
+    "appsDir": "e2e",
+    "libsDir": "packages"
+  },
+  "defaultProject": "cargo",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  }
 }

@@ -5,10 +5,10 @@ describe("generate cargo:lib && generate cargo:app", () => {
 		let app = nrwl.uniq("app");
 		let lib = nrwl.uniq("lib");
 
-		nrwl.ensureNxProject("@nxrs/cargo", "dist/packages/cargo");
+		nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
 
-		await nrwl.runNxCommandAsync(`generate @nxrs/cargo:lib ${lib}`);
-		await nrwl.runNxCommandAsync(`generate @nxrs/cargo:app ${app}`);
+		await nrwl.runNxCommandAsync(`generate @digitalnative/cosmwasm:lib ${lib}`);
+		await nrwl.runNxCommandAsync(`generate @digitalnative/cosmwasm:app ${app}`);
 
 		expect(() => {
 			nrwl.checkFilesExist(`libs/${lib}/src/lib.rs`);

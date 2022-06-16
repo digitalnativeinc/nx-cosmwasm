@@ -1,5 +1,5 @@
 {
-	"root": "e2e\\cargo-e2e",
+	"$schema": "../node_modules/nx/schemas/project-schema.json",
 	"projectType": "application",
 	"sourceRoot": "e2e\\cargo-e2e/src",
 	"targets": {
@@ -7,7 +7,7 @@
 			"executor": "@nrwl/nx-plugin:e2e",
 			"options": {
 				"target": "cargo:build",
-				"npmPackageName": "@nxrs/cargo",
+				"npmPackageName": "@digitalnative/cosmwasm",
 				"pluginOutputPath": "dist/packages/cargo",
 				"jestConfig": "e2e/cargo-e2e/jest.config.js"
 			}

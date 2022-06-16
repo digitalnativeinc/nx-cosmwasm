@@ -6,20 +6,14 @@
 		"init": {
 			"factory": "./src/generators/init/generator",
 			"schema": "./src/generators/init/schema.json",
-			"description": "Initialize the @nxrs/cargo plugin",
+			"description": "Initialize the @digitalnative/cosmwasm plugin",
 			"hidden": true
 		},
-		"binary": {
-			"factory": "./src/generators/binary/generator",
-			"schema": "./src/generators/binary/schema.json",
-			"description": "Create a Rust binary",
-			"aliases": ["bin", "app", "application"]
-		},
-		"library": {
-			"factory": "./src/generators/library/generator",
-			"schema": "./src/generators/library/schema.json",
-			"description": "Create a Rust library",
-			"aliases": ["lib"]
+		"cosmwasm": {
+			"factory": "./src/generators/contract/generator",
+			"schema": "./src/generators/contract/schema.json",
+			"description": "Create a Cosmwasm smart contract",
+			"aliases": ["contract"]
 		}
 	}
 }

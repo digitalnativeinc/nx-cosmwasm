@@ -3,9 +3,9 @@ import * as nrwl from "@nrwl/nx-plugin/testing";
 describe("generate cargo:app", () => {
 	it("should create a new Rust application", async () => {
 		let app = nrwl.uniq("cargo");
-		nrwl.ensureNxProject("@nxrs/cargo", "dist/packages/cargo");
+		nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
 
-		await nrwl.runNxCommandAsync(`generate @nxrs/cargo:app ${app}`);
+		await nrwl.runNxCommandAsync(`generate @digitalnative/cosmwasm:app ${app}`);
 
 		expect(() => {
 			nrwl.checkFilesExist(`apps/${app}/src/main.rs`);
@@ -15,10 +15,10 @@ describe("generate cargo:app", () => {
 	describe("--directory", () => {
 		it("should create src in the specified directory", async () => {
 			let app = nrwl.uniq("cargo");
-			nrwl.ensureNxProject("@nxrs/cargo", "dist/packages/cargo");
+			nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
 
 			await nrwl.runNxCommandAsync(
-				`generate @nxrs/cargo:app ${app} --directory subdir`
+				`generate @digitalnative/cosmwasm:app ${app} --directory subdir`
 			);
 
 			expect(() => {
@@ -30,10 +30,10 @@ describe("generate cargo:app", () => {
 	describe("--tags", () => {
 		it("should add tags to nx.json", async () => {
 			let app = nrwl.uniq("cargo");
-			nrwl.ensureNxProject("@nxrs/cargo", "dist/packages/cargo");
+			nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
 
 			await nrwl.runNxCommandAsync(
-				`generate @nxrs/cargo:app ${app} --tags e2etag,e2ePackage`
+				`generate @digitalnative/cosmwasm:app ${app} --tags e2etag,e2ePackage`
 			);
 
 			let projectCfg = nrwl.readJson(`apps/${app}/project.json`);

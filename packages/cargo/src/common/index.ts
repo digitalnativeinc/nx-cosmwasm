@@ -2,6 +2,7 @@ import * as nrwl from "@nrwl/devkit";
 import { ExecutorContext, Tree } from "@nrwl/devkit";
 import * as chalk from "chalk";
 import * as cp from "child_process";
+import path = require("path");
 
 import {
 	CompilationOptions,
@@ -55,7 +56,7 @@ export function cargoNames(name: string): Names {
 }
 
 export function normalizeGeneratorOptions<T extends GeneratorCLIOptions>(
-	projectType: "application" | "library",
+	projectType: "application" | "library" | "contract" | "client",
 	host: Tree,
 	opts: T
 ): T & GeneratorOptions {
@@ -67,6 +68,7 @@ export function normalizeGeneratorOptions<T extends GeneratorCLIOptions>(
 	let rootDir = {
 		application: layout.appsDir,
 		library: layout.libsDir,
+		contract: "contracts"
 	}[projectType];
 
 	let projectDirectory = opts.directory
@@ -74,8 +76,9 @@ export function normalizeGeneratorOptions<T extends GeneratorCLIOptions>(
 		: fileName;
 
 	let projectRoot = `${rootDir}/${projectDirectory}`;
+	console.log("normalizeGenratorOptions: projectsRoot", projectRoot)
 	let parsedTags = opts.tags?.split(",").map(s => s.trim()) ?? [];
-	let edition = opts.edition ?? 2021;
+	let edition = opts.edition ?? 2018;
 
 	return {
 		...opts,
