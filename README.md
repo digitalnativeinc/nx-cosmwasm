@@ -4,6 +4,19 @@
 
 This is a WIP plugin for `@nrwl/nx` adding support for Cosmwasm smart contracts
 
+Nx helps building contracts faster with cloud computing with github integration.
+
+## Prerequisuite
+
+Install [Nx](https://nx.app/) first.
+
+## Installation
+
+```sh
+> nx init
+> yarn add @digitalnative/cosmwasm
+```
+
 ## Generators
 
 ```sh
