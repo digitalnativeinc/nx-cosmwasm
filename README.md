@@ -7,7 +7,7 @@ This is a WIP plugin for `@nrwl/nx` adding support for Cosmwasm smart contracts
 ## Generators
 
 ```sh
-> nx generate @digitalnative/coswasm:contract my_cosmwasm_contract
+> nx generate @digitalnative/cosmwasm:contract my_cosmwasm_contract
 ```
 
 ** WIP: cosmjs lib **
