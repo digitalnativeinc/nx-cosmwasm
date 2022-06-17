@@ -1,0 +1,27 @@
+{
+  "name": "@digitalnative/cosmwasm",
+  "version": "0.0.12",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "generators": "./generators.json",
+  "executors": "./executors.json",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalnative/nx-cosmwasm"
+  },
+  "author": {
+    "name": "Hyungsuk Kang",
+    "email": "hskang9@gmail.com",
+    "url": "https://github.com/hskang9"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "peerDependencies": {
+    "@nrwl/devkit": ">= 12.7.0"
+  },
+  "typings": "./src/index.d.ts"
+}
