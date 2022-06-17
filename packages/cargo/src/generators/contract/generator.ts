@@ -21,6 +21,17 @@ export default async function (host: Tree, opts: CLIOptions) {
 		projectType: "library",
 		sourceRoot: `${options.projectRoot}/src`,
 		targets: {
+			build: {
+				executor: "@digitalnative/cosmwasm:build",
+				options: {
+					release: false,
+				},
+				configurations: {
+					production: {
+						release: true,
+					},
+				},
+			},
 			test: {
 				executor: "@digitalnative/cosmwasm:test",
 				options: {},
