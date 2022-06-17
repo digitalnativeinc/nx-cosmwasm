@@ -13,7 +13,7 @@ Install [Nx](https://nx.app/) first.
 ## Installation
 
 ```sh
-> nx init
+> npx create-nx-workspace
 > yarn add @digitalnative/cosmwasm
 ```
 
