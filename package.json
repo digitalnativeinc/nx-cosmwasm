@@ -7,6 +7,7 @@
 		"start": "nx serve",
 		"build": "nx build",
 		"test": "nx test",
+		"publish-lib": "nx build && cd ./dist/packages/cargo && yarn publish -f",
 		"lint": "nx workspace-lint && nx lint",
 		"e2e": "jest e2e/cargo-e2e --runInBand",
 		"affected:apps": "nx affected:apps",
