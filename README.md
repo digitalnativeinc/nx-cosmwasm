@@ -10,6 +10,10 @@ Nx helps building contracts faster with cloud computing with github integration.
 
 Install [Nx](https://nx.app/) first.
 
+```
+npm i -g nx
+```
+
 ## Installation
 
 ```sh
