@@ -14,7 +14,7 @@ describe("setup cargo:cosmwasm for osmosis", () => {
             nrwl.checkFilesExist(`contracts/${cosmwasm}/src/state.rs`);
             nrwl.checkFilesExist(`contracts/${cosmwasm}/src/contract.rs`);
 		}).not.toThrow();
-	}, 40000);
+	}, 70000);
 	it("should generate schema", async () => {
 		nrwl.ensureNxProject("nxcw", "dist/packages/cargo");
 
