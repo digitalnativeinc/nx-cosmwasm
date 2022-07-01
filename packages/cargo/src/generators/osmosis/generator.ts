@@ -1,6 +1,7 @@
 import * as nrwl from "@nrwl/devkit";
 import { Tree } from "@nrwl/devkit";
 import * as path from "path";
+import * as fs from "fs"
 
 import {
 	GeneratorOptions,
@@ -22,7 +23,7 @@ export default async function (host: Tree, opts: CLIOptions) {
 		sourceRoot: `${options.projectRoot}/src`,
 		targets: {
 			build: {
-				executor: "@digitalnative/cosmwasm:build",
+				executor: "nxcw:build",
 				options: {
 					release: false,
 				},
@@ -33,11 +34,11 @@ export default async function (host: Tree, opts: CLIOptions) {
 				},
 			},
 			test: {
-				executor: "@digitalnative/cosmwasm:test",
+				executor: "nxcw:test",
 				options: {},
 			},
 			lint: {
-				executor: "@digitalnative/cosmwasm:clippy",
+				executor: "nxcw:clippy",
 				options: {
 					fix: false,
 					failOnWarnings: true,
@@ -45,15 +46,24 @@ export default async function (host: Tree, opts: CLIOptions) {
 				},
 			},
 			wasm: {
-				executor: "@digitalnative/cosmwasm:wasm",
-				options: {},
+				executor: "nxcw:wasm",
+				options: {
+					release: true,
+					target: "wasm32-unknown-unknown"
+				},
+				configurations: {
+					production: {
+						release: true,
+						target: "wasm32-unknown-unknown"
+					},
+				},
 			},
 			optimize: {
-				executor: "@digitalnative/cosmwasm:optimize",
+				executor: "nxcw:optimize",
 				options: {},
 			},
 			schema: {
-				executor: "@digitalnative/cosmwasm:schema",
+				executor: "nxcw:schema",
 				options: {},
 			}
 		},

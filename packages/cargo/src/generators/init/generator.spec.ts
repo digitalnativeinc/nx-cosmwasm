@@ -44,6 +44,6 @@ describe("init generator", () => {
 		expect(nxJson).toBeTruthy();
 
 		let json = JSON.parse(nxJson!.content!.toString());
-		expect(json.plugins).toContain("@digitalnative/cosmwasm");
+		expect(json.plugins).toContain("nxcw");
 	});
 });

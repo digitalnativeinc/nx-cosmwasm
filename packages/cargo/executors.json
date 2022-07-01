@@ -15,6 +15,16 @@
 			"implementation": "./src/executors/clippy/executor",
 			"schema": "./src/executors/clippy/schema.json",
 			"description": "Linter for Rust code"
+		},
+		"wasm": {
+			"implementation": "./src/executors/wasm/executor",
+			"schema": "./src/executors/wasm/schema.json",
+			"description": "Wasm compiler for Cosmwasm contract"
+		},
+		"schema": {
+			"implementation": "./src/executors/schema/executor",
+			"schema": "./src/executors/schema/schema.json",
+			"description": "Schema generator for Cosmwasm contract"
 		}
 	}
 }

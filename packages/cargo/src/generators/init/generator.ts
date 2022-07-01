@@ -43,8 +43,8 @@ function addFiles(host: Tree, options: Options) {
 function addPlugin(host: Tree, _: Options) {
 	let config = nrwl.readWorkspaceConfiguration(host);
 	let plugins = config.plugins
-		? config.plugins.concat("@digitalnative/cosmwasm")
-		: ["@digitalnative/cosmwasm"];
+		? config.plugins.concat("nxcw")
+		: ["nxcw"];
 
 	nrwl.updateWorkspaceConfiguration(host, { ...config, plugins });
 }

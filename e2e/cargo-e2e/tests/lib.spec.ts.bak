@@ -3,9 +3,9 @@ import * as nrwl from "@nrwl/nx-plugin/testing";
 describe("generate cargo:lib", () => {
 	it("should create a new Rust library", async () => {
 		let lib = nrwl.uniq("cargo");
-		nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
+		nrwl.ensureNxProject("nxcw", "dist/packages/cargo");
 
-		await nrwl.runNxCommandAsync(`generate @digitalnative/cosmwasm:lib ${lib}`);
+		await nrwl.runNxCommandAsync(`generate nxcw:lib ${lib}`);
 
 		expect(() => {
 			nrwl.checkFilesExist(`libs/${lib}/src/lib.rs`);
@@ -15,10 +15,10 @@ describe("generate cargo:lib", () => {
 	describe("--directory", () => {
 		it("should create src in the specified directory", async () => {
 			let lib = nrwl.uniq("cargo");
-			nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
+			nrwl.ensureNxProject("nxcw", "dist/packages/cargo");
 
 			await nrwl.runNxCommandAsync(
-				`generate @digitalnative/cosmwasm:lib ${lib} --directory subdir`
+				`generate nxcw:lib ${lib} --directory subdir`
 			);
 
 			expect(() => {
@@ -30,10 +30,10 @@ describe("generate cargo:lib", () => {
 	describe("--tags", () => {
 		it("should add tags to nx.json", async () => {
 			let lib = nrwl.uniq("cargo");
-			nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
+			nrwl.ensureNxProject("nxcw", "dist/packages/cargo");
 
 			await nrwl.runNxCommandAsync(
-				`generate @digitalnative/cosmwasm:lib ${lib} --tags e2etag,e2ePackage`
+				`generate nxcw:lib ${lib} --tags e2etag,e2ePackage`
 			);
 
 			let projectCfg = nrwl.readJson(`libs/${lib}/project.json`);

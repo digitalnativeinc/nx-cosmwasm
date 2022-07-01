@@ -6,7 +6,7 @@
 		"init": {
 			"factory": "./src/generators/init/generator",
 			"schema": "./src/generators/init/schema.json",
-			"description": "Initialize the @digitalnative/cosmwasm plugin",
+			"description": "Initialize the nxcw plugin",
 			"hidden": true
 		},
 		"cosmwasm": {

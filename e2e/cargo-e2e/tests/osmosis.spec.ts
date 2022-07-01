@@ -1,24 +1,12 @@
 import * as nrwl from "@nrwl/nx-plugin/testing";
 
-describe("generate cargo:cosmwasm", () => {
+describe("setup cargo:cosmwasm for osmosis", () => {
+	let cosmwasm = "test"
+		
 	it("should create a new Cosmwasm smart contract", async () => {
-		let cosmwasm = nrwl.uniq("cargo");
-		nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
+		nrwl.ensureNxProject("nxcw", "dist/packages/cargo");
 
-		await nrwl.runNxCommandAsync(`generate @digitalnative/cosmwasm:osmosis ${cosmwasm}`);
-
-		expect(() => {
-			nrwl.checkFilesExist(`contracts/${cosmwasm}/src/lib.rs`);
-            nrwl.checkFilesExist(`contracts/${cosmwasm}/src/msg.rs`);
-            nrwl.checkFilesExist(`contracts/${cosmwasm}/src/state.rs`);
-            nrwl.checkFilesExist(`contracts/${cosmwasm}/src/contract.rs`);
-		}).not.toThrow();
-	}, 120000);
-	it("should compile into wasm", async () => {
-		let cosmwasm = nrwl.uniq("cargo");
-		nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
-
-		await nrwl.runNxCommandAsync(`generate @digitalnative/cosmwasm:osmosis ${cosmwasm}`);
+		await nrwl.runNxCommandAsync(`generate nxcw:osmosis ${cosmwasm}`);
 
 		expect(() => {
 			nrwl.checkFilesExist(`contracts/${cosmwasm}/src/lib.rs`);
@@ -26,19 +14,24 @@ describe("generate cargo:cosmwasm", () => {
             nrwl.checkFilesExist(`contracts/${cosmwasm}/src/state.rs`);
             nrwl.checkFilesExist(`contracts/${cosmwasm}/src/contract.rs`);
 		}).not.toThrow();
-	}, 120000);
+	}, 40000);
 	it("should generate schema", async () => {
-		let cosmwasm = nrwl.uniq("cargo");
-		nrwl.ensureNxProject("@digitalnative/cosmwasm", "dist/packages/cargo");
+		nrwl.ensureNxProject("nxcw", "dist/packages/cargo");
 
-		await nrwl.runNxCommandAsync(`generate @digitalnative/cosmwasm:osmosis ${cosmwasm}`);
+		await nrwl.runNxCommandAsync(`schema ${cosmwasm}`);
 
 		expect(() => {
-			nrwl.checkFilesExist(`contracts/${cosmwasm}/src/lib.rs`);
-            nrwl.checkFilesExist(`contracts/${cosmwasm}/src/msg.rs`);
-            nrwl.checkFilesExist(`contracts/${cosmwasm}/src/state.rs`);
-            nrwl.checkFilesExist(`contracts/${cosmwasm}/src/contract.rs`);
+			nrwl.checkFilesExist(`schema/${cosmwasm}/state.json`);
+		}).not.toThrow()
+	}, 30000);
+	it("should compile into wasm", async () => {
+		nrwl.ensureNxProject("nxcw", "dist/packages/cargo");
+
+		await nrwl.runNxCommandAsync(`run ${cosmwasm}:wasm`);
+
+		expect(() => {
+			nrwl.checkFilesExist(`target/wasm32-unknown-unknown/release/${cosmwasm}.wasm`);
 		}).not.toThrow();
-	}, 120000);
-	
+	}, 30000);
+
 });

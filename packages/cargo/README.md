@@ -1,4 +1,4 @@
-# @digitalnative/cosmwasm
+# nxcw
 
 [![npm version](https://badge.fury.io/js/%40nxrs%2Fcargo.svg)](https://badge.fury.io/js/%40nxrs%2Fcargo)
 
@@ -7,12 +7,12 @@ This is a WIP plugin for `@nrwl/nx` adding support for Rust applications and lib
 ## Generators
 
 ```sh
-# @digitalnative/cosmwasm:bin also works
-> nx generate @digitalnative/cosmwasm:app my-rust-app
+# nxcw:bin also works
+> nx generate nxcw:app my-rust-app
 ```
 
 ```sh
-> nx generate @digitalnative/cosmwasm:lib my-rust-lib
+> nx generate nxcw:lib my-rust-lib
 ```
 
 ## Executors

@@ -1,4 +1,4 @@
-# @digitalnative/cosmwasm
+# nxcw
 
 [![npm version](https://badge.fury.io/js/%40nxrs%2Fcargo.svg)](https://badge.fury.io/js/%40digitalnative%2Fcosmwasm)
 
@@ -14,18 +14,18 @@ Install [Nx](https://nx.app/) first.
 
 ```sh
 > npx create-nx-workspace
-> yarn add @digitalnative/cosmwasm
+> yarn add nxcw
 ```
 
 ## Generators
 
 ```sh
-> nx generate @digitalnative/cosmwasm:contract my_cosmwasm_contract
+> nx generate nxcw:contract my_cosmwasm_contract
 ```
 
 ** WIP: cosmjs lib **
 ```sh
-> nx generate @digitalnative/cosmwasm:js my_cosmjs_lib
+> nx generate nxcw:js my_cosmjs_lib
 ```
 
 ## Executors

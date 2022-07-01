@@ -127,11 +127,14 @@ export function parseCargoArgs(opts: CargoOptions, ctx: ExecutorContext): string
 		args.push(`+${opts.toolchain}`);
 	}
 
+
 	// prettier-ignore
 	switch (ctx.targetName) {
 		case "build": args.push("build"); break;
 		case "test":  args.push("test");  break;
-		case "wasm": args.push("wasm"); break;
+		case "wasm": args.push("build"); break;
+		case "unit-test": args.push("test"); break;
+		case "schema": args.push(`run --example schema`); break;
 
 		default: {
 			if (ctx.targetName == null) {

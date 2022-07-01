@@ -1,5 +1,5 @@
 {
-	"name": "@digitalnative/cosmwasm",
+	"name": "nxcw",
 	"version": "0.0.2",
 	"license": "MIT",
 	"scripts": {
@@ -9,7 +9,7 @@
 		"test": "nx test",
 		"publish-lib": "nx build && cd ./dist/packages/cargo && yarn publish -f",
 		"lint": "nx workspace-lint && nx lint",
-		"e2e": "nx build && jest e2e/cargo-e2e --runInBand --config e2e/cargo-e2e/jest.config.js",
+		"e2e": "rm -rf dist && nx build && jest e2e/cargo-e2e --runInBand --config e2e/cargo-e2e/jest.config.js",
 		"affected:apps": "nx affected:apps",
 		"affected:libs": "nx affected:libs",
 		"affected:build": "nx affected:build",
