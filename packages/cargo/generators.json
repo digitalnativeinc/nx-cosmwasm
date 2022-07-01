@@ -10,10 +10,10 @@
 			"hidden": true
 		},
 		"cosmwasm": {
-			"factory": "./src/generators/contract/generator",
-			"schema": "./src/generators/contract/schema.json",
-			"description": "Create a Cosmwasm smart contract",
-			"aliases": ["contract"]
+			"factory": "./src/generators/osmosis/generator",
+			"schema": "./src/generators/osmosis/schema.json",
+			"description": "Create a Cosmwasm smart contract from Osmosis",
+			"aliases": ["osmosis"]
 		}
 	}
 }

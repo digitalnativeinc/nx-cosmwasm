@@ -131,6 +131,7 @@ export function parseCargoArgs(opts: CargoOptions, ctx: ExecutorContext): string
 	switch (ctx.targetName) {
 		case "build": args.push("build"); break;
 		case "test":  args.push("test");  break;
+		case "wasm": args.push("wasm"); break;
 
 		default: {
 			if (ctx.targetName == null) {
@@ -208,6 +209,23 @@ export function runCargo(args: string[], ctx: ExecutorContext) {
 			.on("error", reject)
 			.on("close", code => {
 				if (code) reject(new Error(`Cargo failed with exit code ${code}`));
+				else resolve();
+			});
+	});
+}
+
+export function setRustFlags(args: string[], ctx: ExecutorContext) {
+	console.log(chalk.dim(`> RUSTFLAGS='-C link-arg=-s'`));
+	
+	return new Promise<void>((resolve, reject) => {
+		cp.spawn("RUSTFLAGS='-C link-arg=-s'", args, {
+			cwd: ctx.root,
+			shell: true,
+			stdio: "inherit",
+		})
+			.on("error", reject)
+			.on("close", code => {
+				if (code) reject(new Error(`${code}`));
 				else resolve();
 			});
 	});

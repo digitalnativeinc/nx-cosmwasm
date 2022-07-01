@@ -2,7 +2,7 @@ import { Tree } from "@nrwl/devkit";
 import { createTreeWithEmptyWorkspace } from "@nrwl/devkit/testing";
 import runGenerator from "./generator";
 
-describe("cosmwasm generator", () => {
+describe("osmosis generator", () => {
 	let appTree: Tree;
 
 	beforeAll(async () => {
@@ -26,7 +26,7 @@ describe("cosmwasm generator", () => {
 			.content!.toString();
 
 		expect(cargoContent).toContain(`name = "my_library"`);
-		expect(cargoContent).toContain(`edition = "2021"`);
+		expect(cargoContent).toContain(`edition = "2018"`);
 
 		let libRsContent = changes
 			.find(c => c.path === "libs/my-library/src/lib.rs")!
@@ -41,7 +41,7 @@ describe("cosmwasm generator", () => {
 
 	it("should add project to workspace members", () => {
 		let changes = appTree.listChanges();
-		let members = changes.find(c => c.path === "Cargo.toml")!.content!.toString();
+		let members = changes.find(c => c.path === "Cargo.toml__template__")!.content!.toString();
 
 		expect(members).toContain(`"libs/my-library"`);
 	});

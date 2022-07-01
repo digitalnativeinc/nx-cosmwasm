@@ -44,6 +44,18 @@ export default async function (host: Tree, opts: CLIOptions) {
 					noDeps: true,
 				},
 			},
+			wasm: {
+				executor: "@digitalnative/cosmwasm:wasm",
+				options: {},
+			},
+			optimize: {
+				executor: "@digitalnative/cosmwasm:optimize",
+				options: {},
+			},
+			schema: {
+				executor: "@digitalnative/cosmwasm:schema",
+				options: {},
+			}
 		},
 		tags: options.parsedTags,
 	});
@@ -60,7 +72,6 @@ async function addFiles(host: Tree, opts: Options) {
 
 	let substitutions = {
 		projectName: opts.projectName,
-		edition: opts.edition,
 		template: "",
 	};
 
