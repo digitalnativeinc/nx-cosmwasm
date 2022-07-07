@@ -23,8 +23,9 @@ npm i -g nx
 
 ## Generators
 
+Generate each cosmwasm contract starter from each team
 ```sh
-> nx generate nxcw:contract my_cosmwasm_contract
+> nx generate nxcw:osmosis my_cosmwasm_contract
 ```
 
 ** WIP: cosmjs lib **
@@ -38,8 +39,16 @@ npm i -g nx
 # Build a contract or Typescript library
 > nx build my_cosmwasm_contract
 
-# Run unit tests in a library
+# Run unit tests in a library or contract
 > nx test my_cosmjs_lib
+> nx test my_cosmwasm_contract
+
+# Render dependancy graph for your cosmwasm contract
+
+> nx graph 
+
+![graph](https://user-images.githubusercontent.com/12888144/177853973-0cd71e47-5d9c-442f-b1f5-576af3fb3768.png)
+
 
 # Check a Rust project with `clippy`
 > nx lint my_cosmwasm_contract
