@@ -23,7 +23,7 @@ npm i -g nx
 
 ## Generators
 
-Generate each cosmwasm contract starter from each team
+Generate each cosmwasm contract starter from each cosmos chain
 ```sh
 > nx generate nxcw:osmosis my_cosmwasm_contract
 ```
