@@ -35,18 +35,19 @@ Generate each cosmwasm contract starter from each cosmos chain
 
 ## Executors
 
-```sh
 # Build a contract or Typescript library
+```sh
 > nx build my_cosmwasm_contract
+```
 
 # Run unit tests in a library or contract
+
+```sh
 > nx test my_cosmjs_lib
 > nx test my_cosmwasm_contract
+```
 
-
-## Graph
-
-Render dependancy graph for your cosmwasm contract
+# Render dependancy graph for your cosmwasm contract
 
 ```sh
 > nx graph 
