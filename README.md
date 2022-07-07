@@ -43,14 +43,24 @@ Generate each cosmwasm contract starter from each cosmos chain
 > nx test my_cosmjs_lib
 > nx test my_cosmwasm_contract
 
-# Render dependancy graph for your cosmwasm contract
 
+## Graph
+
+Render dependancy graph for your cosmwasm contract
+
+```sh
 > nx graph 
-
+```
 ![graph](https://user-images.githubusercontent.com/12888144/177853973-0cd71e47-5d9c-442f-b1f5-576af3fb3768.png)
 
+## Cloud build
 
-# Check a Rust project with `clippy`
+Integrate with nx cloud build server to save compilation time for rust cosmwasm contracts.
+
+<img width="400" alt="Screen Shot 2022-07-08 at 4 10 07 AM" src="https://user-images.githubusercontent.com/12888144/177854663-95643bba-7f55-4c9a-8223-b13bcafdc5b8.png">
+
+
+## Check a Rust project with `clippy`
 > nx lint my_cosmwasm_contract
 # Don't fail on warnings:
 > nx lint my_cosmwasm_contract __fail_on_warnings false
