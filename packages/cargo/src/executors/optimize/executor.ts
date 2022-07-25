@@ -1,13 +1,12 @@
 import { ExecutorContext } from "@nrwl/devkit";
 
-import { parseCargoArgs, runCargo } from "../../common";
+import { parseCargoArgs, runWasmOpt } from "../../common";
 import CLIOptions from "./schema";
 
 export default async function (opts: CLIOptions, ctx: ExecutorContext) {
 	try {
 		let args = parseCargoArgs(opts, ctx);
-		await runCargo(args, ctx);
-		//await optimizeWasm(args, ctx);
+		await runWasmOpt(args, ctx);
 		return { success: true };
 	} catch (err) {
 		return {

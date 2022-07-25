@@ -21,6 +21,11 @@
 			"schema": "./src/executors/wasm/schema.json",
 			"description": "Wasm compiler for Cosmwasm contract"
 		},
+		"optimize": {
+			"implementation": "./src/executors/optimize/executor",
+			"schema": "./src/executors/optimize/schema.json",
+			"description": "Wasm optimizer for Cosmwasm contract"
+		},
 		"schema": {
 			"implementation": "./src/executors/schema/executor",
 			"schema": "./src/executors/schema/schema.json",

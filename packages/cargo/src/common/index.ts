@@ -140,6 +140,7 @@ export function parseCargoArgs(opts: CargoOptions, ctx: ExecutorContext): string
 		case "test":  args.push("test");  break;
 		case "wasm": args.push("build"); break;
 		case "unit-test": args.push("test"); break;
+		case "optimize": args.push("optimize"); break;
 		case "schema": args.push(`run --example schema`); break;
 
 		default: {
@@ -222,6 +223,25 @@ export function runCargo(args: string[], ctx: ExecutorContext) {
 			});
 	});
 }
+
+export function runWasmOpt(args: string[], ctx: ExecutorContext) {
+	console.log(chalk.dim(`> npx wasm-opt -Os ./target/wasm32-unknown-unknown/release/${ctx.projectName}.wasm -o artifacts/${ctx.projectName}_optimized.wasm`));
+
+	return new Promise<void>((resolve, reject) => {
+		cp.spawn("npx wasm-opt -Os", [`./target/wasm32-unknown-unknown/release/${ctx.projectName}.wasm`, `-o`, `artifacts/${ctx.projectName}_optimized.wasm`], {
+			cwd: ctx.root,
+			shell: true,
+			stdio: "inherit",
+		})
+			.on("error", reject)
+			.on("close", code => {
+				if (code) reject(new Error(`wasm-opt failed with exit code ${code}`));
+				else resolve();
+			});
+	});
+}
+
+
 
 export function setRustFlags(args: string[], ctx: ExecutorContext) {
 	console.log(chalk.dim(`> RUSTFLAGS='-C link-arg=-s'`));
